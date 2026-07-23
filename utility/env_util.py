@@ -70,6 +70,7 @@ if __name__ == "__main__":
 '''
 일반 파일에서 다음과 같이 간단히 사용할 수 있습니다.
 from utility.env_util import get_api_key
+from openai import OpenAI
 
 find_api = "OPENAI_API_KEY"
 api_key = get_api_key(find_api)
