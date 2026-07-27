@@ -1,0 +1,217 @@
+==============================
+📄 PDF 로드 결과
+==============================
+총 문서 개수: 3
+
+[문서 1]
+커피 매장 메뉴 및 이용 정보 
+본 커피 매장은 다양한 커피 음료와 디저트, 베이커리 메뉴를 함께 제공하는 
+복합 카페 공간입니다. 매장은 단순히 음료를 제공하는 장소를 넘어 고객이 
+편안한 분위기 속에서 대화, 휴식, 업무 및 독서를 즐길 수 있도록 구성되어 
+있습니다. 전체 좌석은 일반 좌석, 창가 좌석, 단체 좌석, 노트북 작업이 가능한 
+콘센트 좌석
+
+[문서 2]
+콜드브루는 장시간 저온 추출한 커피 음료로, 일반적인 아메리카노보다 부드럽고 
+깔끔한 맛이 특징입니다. 쓴맛이 상대적으로 적고 목넘김이 부드러워 차가운 
+커피를 선호하는 고객에게 인기가 많습니다. 단맛이 강한 디저트와 함께 마실 
+경우 커피의 깔끔한 맛이 더욱 잘 느껴집니다. 
+카푸치노는 풍성한 우유 거품이 특징인 커피 음료입니다. 부드러운 거품과 진한 
+
+
+[문서 3]
+초코 브라우니는 진한 초콜릿 풍미와 묵직한 식감이 특징인 디저트입니다. 
+달콤함이 강한 편이기 때문에 아메리카노나 콜드브루와 함께 먹을 경우 균형 
+잡힌 맛을 느낄 수 있습니다. 
+녹차 케이크는 은은한 녹차 향과 부드러운 크림이 특징입니다. 달콤함이 과하지 
+않아 깔끔한 디저트를 선호하는 고객에게 적합하며, 라떼와 함께 즐길 경우 
+부드러운 풍미가 강조됩니
+
+==============================
+✂️ 문서 분할 결과
+==============================
+분할된 Chunk 개수: 14
+
+[Chunk 1]
+커피 매장 메뉴 및 이용 정보 
+본 커피 매장은 다양한 커피 음료와 디저트, 베이커리 메뉴를 함께 제공하는 
+복합 카페 공간입니다. 매장은 단순히 음료를 제공하는 장소를 넘어 고객이 
+편안한 분위기 속에서 대화, 휴식, 업무 및 독서를 즐길 수 있도록 구성되어 
+있습니다. 전체 좌석은 일반 좌석, 창가 좌석, 단체 좌석, 노트북 작업이 가능한 
+콘센트 좌석
+
+[Chunk 2]
+매장 내부는 은은한 조명과 우드톤 인테리어를 중심으로 구성되어 있으며, 오전 
+시간에는 비교적 조용한 분위기에서 커피를 즐길 수 있습니다. 오후 시간에는 
+디저트와 음료를 함께 즐기는 고객이 많으며, 저녁 시간에는 차분한 음악과 함께 
+편안한 분위기를 제공합니다. 매장에서는 무료 와이파이를 제공하며, 개인 컵 
+사용 시 소정의 할인 혜택을 제공합니다. 
+본
+
+[Chunk 3]
+있습니다. 각 메뉴는 개별적으로도 즐길 수 있지만, 함께 선택했을 때 맛의 
+균형이 잘 어우러지도록 설계되어 있습니다. 고객은 자신의 취향에 따라 산미가 
+강한 커피, 고소한 커피, 달콤한 디저트, 담백한 베이커리 등을 조합하여 다양한 
+맛을 경험할 수 있습니다. 
+아메리카노는 본 매장의 대표적인 커피 메뉴 중 하나입니다. 산미가 강하지 않고 
+고소한 풍미
+
+[Chunk 4]
+있습니다. 진한 커피의 풍미를 좋아하는 고객에게 적합하며, 달콤한 디저트와 
+함께 마실 경우 맛의 대비가 더욱 분명하게 느껴집니다. 특히 초코 케이크, 
+크루아상, 버터 쿠키와 함께 즐기기에 적합합니다. 아이스 아메리카노는 청량감 
+있는 느낌이 특징이며, 더운 날씨에 가볍게 즐기기 좋습니다. 
+카페라떼는 에스프레소에 스팀 우유를 더한 부드러운 커피 음료입니
+
+[Chunk 5]
+없이 즐길 수 있습니다. 라떼는 식감이 부드러운 디저트와 특히 잘 어울리며, 
+딸기 치즈케이크나 생크림 케이크와 함께 주문하는 고객이 많습니다. 따뜻한 
+라떼는 부드러운 향이 강조되며, 아이스 라떼는 산뜻한 느낌으로 즐길 수 
+있습니다. 
+바닐라 라떼는 달콤한 바닐라 시럽이 추가된 음료로, 커피를 처음 접하는 
+고객이나 달콤한 음료를 선호하는 고객에게 인기
+
+[Chunk 6]
+풍미와 은은한 바닐라 향이 특징이며, 쿠키류나 크루아상과 잘 어울립니다. 
+지나치게 강한 커피 맛을 부담스러워하는 고객이 자주 선택하는 메뉴입니다. 
+카라멜 마키아또는 달콤한 카라멜 시럽과 에스프레소가 어우러진 음료입니다. 
+달콤하면서도 진한 커피 풍미를 동시에 느낄 수 있으며, 디저트 없이 단독으로 
+즐기기에도 적합합니다. 초코 브라우니와 함께 마실 경우
+
+[Chunk 7]
+콜드브루는 장시간 저온 추출한 커피 음료로, 일반적인 아메리카노보다 부드럽고 
+깔끔한 맛이 특징입니다. 쓴맛이 상대적으로 적고 목넘김이 부드러워 차가운 
+커피를 선호하는 고객에게 인기가 많습니다. 단맛이 강한 디저트와 함께 마실 
+경우 커피의 깔끔한 맛이 더욱 잘 느껴집니다. 
+카푸치노는 풍성한 우유 거품이 특징인 커피 음료입니다. 부드러운 거품과 진한 
+
+
+[Chunk 8]
+선택되는 메뉴입니다. 
+헤이즐넛 라떼는 고소한 헤이즐넛 향이 특징인 음료입니다. 달콤하면서도 견과류 
+특유의 향이 느껴지며, 쿠키류 및 초코 디저트와 좋은 조화를 이룹니다. 달콤한 
+커피를 좋아하는 고객이 자주 선택합니다. 
+딸기 치즈케이크는 부드러운 식감과 상큼한 딸기 풍미가 특징인 디저트입니다. 
+치즈의 고소함과 딸기의 산뜻함이 자연스럽게 어우러지며, 
+
+[Chunk 9]
+더욱 풍부하게 느껴집니다. 
+초코 케이크는 진한 초콜릿 풍미가 강조된 디저트입니다. 단맛이 비교적 강한 
+편이며, 쌉싸름한 커피 음료와 함께 마실 경우 맛의 균형이 잘 맞습니다. 특히 
+아메리카노, 콜드브루와 함께 즐기기에 적합하며, 진한 디저트를 좋아하는 
+고객에게 인기가 많습니다. 
+티라미수는 커피 향과 크림의 부드러운 식감이 특징인 디저트입니다. 에스
+
+[Chunk 10]
+이어집니다. 달콤하지만 과하지 않은 맛으로 인해 남녀 모두에게 인기가 
+많습니다. 
+블루베리 머핀은 촉촉한 식감과 상큼한 블루베리 풍미가 특징입니다. 아침 
+시간대에 간단한 식사 대용으로 선택하는 고객이 많으며, 따뜻한 아메리카노와 
+잘 어울립니다. 
+크루아상은 버터 향이 풍부하고 겉은 바삭하며 속은 부드러운 베이커리 
+메뉴입니다. 담백한 맛의 아메리카노와
+
+==============================
+🧠 임베딩 모델 생성 완료
+==============================
+client=<openai.resources.embeddings.Embeddings object at 0x000001A3E0C823C0> async_client=<openai.resources.embeddings.AsyncEmbeddings object at 0x000001A3E0C83380> model='text-embedding-ada-002' dimensions=None deployment='text-embedding-ada-002' openai_api_version=None openai_api_base=None openai_api_type=None openai_proxy=None embedding_ctx_length=8191 openai_api_key=SecretStr('**********') openai_organization=None allowed_special=None disallowed_special=None chunk_size=1000 max_retries=2 request_timeout=None headers=None tiktoken_enabled=True tiktoken_model_name=None show_progress_bar=False model_kwargs={} skip_empty=False default_headers=None default_query=None retry_min_seconds=4 retry_max_seconds=20 http_client=None http_async_client=None check_embedding_ctx_length=True
+
+==============================
+📦 Vector Store 생성 완료
+==============================
+<langchain_community.vectorstores.chroma.Chroma object at 0x000001A3E0C834D0>
+
+==============================
+🔍 Retriever 생성 완료
+==============================
+tags=['Chroma', 'OpenAIEmbeddings'] vectorstore=<langchain_community.vectorstores.chroma.Chroma object at 0x000001A3E0C834D0> search_kwargs={}
+
+==============================
+📝 Prompt Template
+==============================
+input_variables=['chat_history', 'context', 'question'] input_types={'chat_history': list[typing.Annotated[typing.Annotated[langchain_core.messages.ai.AIMessage, Tag(tag='ai')] | typing.Annotated[langchain_core.messages.human.HumanMessage, Tag(tag='human')] | typing.Annotated[langchain_core.messages.chat.ChatMessage, Tag(tag='chat')] | typing.Annotated[langchain_core.messages.system.SystemMessage, Tag(tag='system')] | typing.Annotated[langchain_core.messages.function.FunctionMessage, Tag(tag='function')] | typing.Annotated[langchain_core.messages.tool.ToolMessage, Tag(tag='tool')] | typing.Annotated[langchain_core.messages.ai.AIMessageChunk, Tag(tag='AIMessageChunk')] | typing.Annotated[langchain_core.messages.human.HumanMessageChunk, Tag(tag='HumanMessageChunk')] | typing.Annotated[langchain_core.messages.chat.ChatMessageChunk, Tag(tag='ChatMessageChunk')] | typing.Annotated[langchain_core.messages.system.SystemMessageChunk, Tag(tag='SystemMessageChunk')] | typing.Annotated[langchain_core.messages.function.FunctionMessageChunk, Tag(tag='FunctionMessageChunk')] | typing.Annotated[langchain_core.messages.tool.ToolMessageChunk, Tag(tag='ToolMessageChunk')], FieldInfo(annotation=NoneType, required=True, discriminator=Discriminator(discriminator=<function _get_type at 0x000001A3DBACFD70>, custom_error_type=None, custom_error_message=None, custom_error_context=None))]]} partial_variables={} messages=[SystemMessagePromptTemplate(prompt=PromptTemplate(input_variables=[], input_types={}, partial_variables={}, template='너는 카페 직원이야. 제공된 정보만 사용해서 질문에 답해줘.'), additional_kwargs={}), MessagesPlaceholder(variable_name='chat_history'), HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['context', 'question'], input_types={}, partial_variables={}, template='카페 정보:\n{context}\n\n질문:\n{question}'), additional_kwargs={})]
+
+==============================
+🤖 LLM 모델 정보
+==============================
+output_version=None profile={'name': 'GPT-4o', 'release_date': '2024-05-13', 'last_updated': '2024-08-06', 'open_weights': False, 'max_input_tokens': 128000, 'max_output_tokens': 16384, 'text_inputs': True, 'image_inputs': True, 'audio_inputs': False, 'pdf_inputs': True, 'video_inputs': False, 'text_outputs': True, 'image_outputs': False, 'audio_outputs': False, 'video_outputs': False, 'reasoning_output': False, 'tool_calling': True, 'structured_output': True, 'attachment': True, 'temperature': True, 'image_url_inputs': True, 'pdf_tool_message': True, 'image_tool_message': True, 'tool_choice': True} client=<openai.resources.chat.completions.completions.Completions object at 0x000001A3E17CFE00> async_client=<openai.resources.chat.completions.completions.AsyncCompletions object at 0x000001A3E17CFA10> root_client=<openai.OpenAI object at 0x000001A3E17A79D0> root_async_client=<openai.AsyncOpenAI object at 0x000001A3E1EAC050> model_name='gpt-4o' temperature=0.3 model_kwargs={} openai_api_key=SecretStr('**********') openai_proxy=None stream_usage=True max_tokens=100 stream_chunk_timeout=120.0
+
+==============================
+💬 초기 대화 기록
+==============================
+[]
+
+==============================
+🔗 RAG Chain 생성 완료
+==============================
+first={
+  context: VectorStoreRetriever(tags=['Chroma', 'OpenAIEmbeddings'], vectorstore=<langchain_community.vectorstores.chroma.Chroma object at 0x000001A3E0C834D0>, search_kwargs={}),
+  question: RunnableLambda(...),
+  chat_history: RunnableLambda(...)
+} middle=[ChatPromptTemplate(input_variables=['chat_history', 'context', 'question'], input_types={'chat_history': list[typing.Annotated[typing.Annotated[langchain_core.messages.ai.AIMessage, Tag(tag='ai')] | typing.Annotated[langchain_core.messages.human.HumanMessage, Tag(tag='human')] | typing.Annotated[langchain_core.messages.chat.ChatMessage, Tag(tag='chat')] | typing.Annotated[langchain_core.messages.system.SystemMessage, Tag(tag='system')] | typing.Annotated[langchain_core.messages.function.FunctionMessage, Tag(tag='function')] | typing.Annotated[langchain_core.messages.tool.ToolMessage, Tag(tag='tool')] | typing.Annotated[langchain_core.messages.ai.AIMessageChunk, Tag(tag='AIMessageChunk')] | typing.Annotated[langchain_core.messages.human.HumanMessageChunk, Tag(tag='HumanMessageChunk')] | typing.Annotated[langchain_core.messages.chat.ChatMessageChunk, Tag(tag='ChatMessageChunk')] | typing.Annotated[langchain_core.messages.system.SystemMessageChunk, Tag(tag='SystemMessageChunk')] | typing.Annotated[langchain_core.messages.function.FunctionMessageChunk, Tag(tag='FunctionMessageChunk')] | typing.Annotated[langchain_core.messages.tool.ToolMessageChunk, Tag(tag='ToolMessageChunk')], FieldInfo(annotation=NoneType, required=True, discriminator=Discriminator(discriminator=<function _get_type at 0x000001A3DBACFD70>, custom_error_type=None, custom_error_message=None, custom_error_context=None))]]}, partial_variables={}, messages=[SystemMessagePromptTemplate(prompt=PromptTemplate(input_variables=[], input_types={}, partial_variables={}, template='너는 카페 직원이야. 제공된 정보만 사용해서 질문에 답해줘.'), additional_kwargs={}), MessagesPlaceholder(variable_name='chat_history'), HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['context', 'question'], input_types={}, partial_variables={}, template='카페 정보:\n{context}\n\n질문:\n{question}'), additional_kwargs={})]), ChatOpenAI(output_version=None, profile={'name': 'GPT-4o', 'release_date': '2024-05-13', 'last_updated': '2024-08-06', 'open_weights': False, 'max_input_tokens': 128000, 'max_output_tokens': 16384, 'text_inputs': True, 'image_inputs': True, 'audio_inputs': False, 'pdf_inputs': True, 'video_inputs': False, 'text_outputs': True, 'image_outputs': False, 'audio_outputs': False, 'video_outputs': False, 'reasoning_output': False, 'tool_calling': True, 'structured_output': True, 'attachment': True, 'temperature': True, 'image_url_inputs': True, 'pdf_tool_message': True, 'image_tool_message': True, 'tool_choice': True}, client=<openai.resources.chat.completions.completions.Completions object at 0x000001A3E17CFE00>, async_client=<openai.resources.chat.completions.completions.AsyncCompletions object at 0x000001A3E17CFA10>, root_client=<openai.OpenAI object at 0x000001A3E17A79D0>, root_async_client=<openai.AsyncOpenAI object at 0x000001A3E1EAC050>, model_name='gpt-4o', temperature=0.3, model_kwargs={}, openai_api_key=SecretStr('**********'), openai_proxy=None, stream_usage=True, max_tokens=100, stream_chunk_timeout=120.0)] last=StrOutputParser()
+
+==============================
+🙋 사용자 질문
+==============================
+초코 케이크와 잘 어울리는 커피는 뭐야?
+
+==============================
+📚 Retriever 검색 결과
+==============================
+검색된 문서 개수: 4
+
+[검색 문서 1]
+더욱 풍부하게 느껴집니다. 
+초코 케이크는 진한 초콜릿 풍미가 강조된 디저트입니다. 단맛이 비교적 강한 
+편이며, 쌉싸름한 커피 음료와 함께 마실 경우 맛의 균형이 잘 맞습니다. 특히 
+아메리카노, 콜드브루와 함께 즐기기에 적합하며, 진한 디저트를 좋아하는 
+고객에게 인기가 많습니다. 
+티라미수는 커피 향과 크림의 부드러운 식감이 특징인 디저트입니다. 에스프레소 
+풍미가 은은하게 느껴지며, 카페라떼와 함께 즐기면 전체적인 맛이 부드럽게 
+이어집니다. 달콤하지만 과하지 않은 맛으로 인해 남녀 모두에게 인기가 
+많습니다.
+
+[검색 문서 2]
+있습니다. 진한 커피의 풍미를 좋아하는 고객에게 적합하며, 달콤한 디저트와 
+함께 마실 경우 맛의 대비가 더욱 분명하게 느껴집니다. 특히 초코 케이크, 
+크루아상, 버터 쿠키와 함께 즐기기에 적합합니다. 아이스 아메리카노는 청량감 
+있는 느낌이 특징이며, 더운 날씨에 가볍게 즐기기 좋습니다. 
+카페라떼는 에스프레소에 스팀 우유를 더한 부드러운 커피 음료입니다. 우유의 
+고소함과 커피의 풍미가 조화를 이루며, 커피의 쓴맛이 상대적으로 적어 부담 
+없이 즐길 수 있습니다. 라떼는 식감이 부드러운 디저트와 특히 잘 어울리며,
+
+[검색 문서 3]
+풍미와 은은한 바닐라 향이 특징이며, 쿠키류나 크루아상과 잘 어울립니다. 
+지나치게 강한 커피 맛을 부담스러워하는 고객이 자주 선택하는 메뉴입니다. 
+카라멜 마키아또는 달콤한 카라멜 시럽과 에스프레소가 어우러진 음료입니다. 
+달콤하면서도 진한 커피 풍미를 동시에 느낄 수 있으며, 디저트 없이 단독으로 
+즐기기에도 적합합니다. 초코 브라우니와 함께 마실 경우 달콤함이 더욱 진하게 
+느껴지며, 씁쓸한 커피와의 조화가 특징입니다.
+
+[검색 문서 4]
+초코 브라우니는 진한 초콜릿 풍미와 묵직한 식감이 특징인 디저트입니다. 
+달콤함이 강한 편이기 때문에 아메리카노나 콜드브루와 함께 먹을 경우 균형 
+잡힌 맛을 느낄 수 있습니다. 
+녹차 케이크는 은은한 녹차 향과 부드러운 크림이 특징입니다. 달콤함이 과하지 
+않아 깔끔한 디저트를 선호하는 고객에게 적합하며, 라떼와 함께 즐길 경우 
+부드러운 풍미가 강조됩니다. 
+매장에서는 시즌 한정 메뉴도 운영하고 있습니다. 봄 시즌에는 딸기 라떼와 벚꽃 
+케이크가 제공되며, 여름 시즌에는 망고 스무디와 아이스 디저트 메뉴가
+
+==============================
+🤖 최종 답변
+==============================
+초코 케이크와 잘 어울리는 커피는 아메리카노와 콜드브루입니다.
+
+==============================
+🧠 저장된 대화 기록
+==============================
+메시지 개수: 2
+
+[메시지 1]
+HumanMessage
+초코 케이크와 잘 어울리는 커피는 뭐야?
+
+[메시지 2]
+AIMessage
+초코 케이크와 잘 어울리는 커피는 아메리카노와 콜드브루입니다.

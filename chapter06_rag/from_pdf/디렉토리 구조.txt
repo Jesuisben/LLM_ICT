@@ -1,0 +1,17 @@
+chapter06_rag/
+│
+├── from_pdf/
+│   │
+│   ├── pdf_rag_streamlit.py      # Streamlit 메인
+│   ├── pdf_util.py               # PDF 로드
+│   ├── rag_util.py               # Chunk, Chroma, Retriever
+│   ├── prompt_util.py            # Prompt + LLM + Chain
+│   ├── chat_util.py              # Chat History 관리
+│   │
+│   ├── temp/                     # 업로드한 PDF 저장
+│   └── vector_db/                # Chroma DB 저장
+│
+├── utility/
+│   └── env_util.py
+│
+└── ...

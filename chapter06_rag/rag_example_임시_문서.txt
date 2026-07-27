@@ -1,0 +1,76 @@
+한눈에 보는 비용 발생 흐름
+[문서 등록 시]
+Documents
+   ↓
+OpenAI Embedding API(1회성)
+   ↓
+Vector DB 저장
+
+[질문할 때마다]
+User Question
+   ↓
+Vector DB 검색(무료)
+   ↓
+Prompt 구성(무료)
+   ↓
+LLM 호출(매 질문마다)
+   ↓
+Answer
+
+요소	의미
+documents	사람이 읽는 원문 텍스트
+embeddings	텍스트 의미를 숫자로 변환
+FAISS	벡터를 빠르게 검색하는 DB
+similarity	의미가 얼마나 비슷한지 수치화
+
+
+☕ LangChain + RAG 예제
+'커피 매장(카페)'을 지식으로 갖는 LangChain + RAG 예제
+주제: 카페 메뉴를 기반으로 질문에 답하는 챗봇
+
+1️⃣ 시나리오 설정(개념부터)
+이 챗봇은 카페 메뉴/정보를 미리 문서로 저장해 두고 손님 질문이 들어오면
+관련된 메뉴만 찾아서 그 정보를 근거로 답변을 제시합니다
+RAG의 핵심 : '아는 척해서 만들어내는 답변'은 금지합니다.
+
+
+2️⃣ 카페 지식 문서(Vector DB에 들어갈 데이터)
+documents는 카페 직원들이 참조 하는 문장들입니다.
+LLM은 이걸 직접 학습한 게 아니라, 검색해서 참고합니다.
+
+# OpenAIEmbeddings는 텍스트를 "의미를 담은 숫자 벡터"로 바꿔주는 클래스입니다.
+
+# 7️⃣ 예상 출력 결과
+# 딸기 치즈케이크에는 부드러운 라떼가 잘 어울립니다.
+# 우유의 고소함이 케이크의 상큼한 맛을 더욱 살려줍니다.#
+#
+# 📌 왜 이런 답이 나왔을까?
+# 질문과 가장 관련 있는 문서 검색
+# 딸기 치즈케이크
+# 라떼
+# 그 문서만 {context}로 전달
+# LLM이 그 범위 안에서만 답변
+
+
+'''
+8️⃣ 전체 흐름 요약(흐름도용 텍스트)
+Customer Question
+   ↓
+Retriever(Cafe Menu Vector DB)
+   ↓
+Relevant Menu Information
+   ↓
+Prompt Template(Cafe Staff Role)
+   ↓
+LLM
+   ↓
+Answer to Customer
+'''
+
+#(👉 이거 그대로 이미지로 만들어도 좋음)
+#
+# 🎓 수업용 한 줄 핵심 정리
+#
+# RAG란?
+# LLM이 기억에 의존해 답하는 것이 아니라,
+# 먼저 관련 정보를 검색한 뒤 그 정보만 근거로 답변하게 만드는 구조
