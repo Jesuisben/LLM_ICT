@@ -41,7 +41,13 @@ from chapter07_search_engine.duckduckgo.search_util import (
 )
 
 from chapter07_search_engine.duckduckgo.crawler_util import (
-    get_articles
+    get_articles,
+    merge_articles
+)
+
+from chapter07_search_engine.duckduckgo.llm_util import (
+    create_model,
+    create_chain
 )
 # ============================================================
 # Constant
@@ -112,20 +118,43 @@ def main():
             # ----------------------------------------------------------
             # Context 생성
             # ----------------------------------------------------------
+            context = merge_articles(article_list)
+
+            if not context:
+                st.warning("기사 내용을 가져 오지 못했습니다.")
+
+                return
             # ----------------------------------------------------------
             # LLM 호출
             # ----------------------------------------------------------
+            with show_spinner("GPT 답변 생성 중..."):
+                model =  create_model(max_tokens=max_tokens)
+
+                chain = create_chain(model)
+
+                # 사용자의 질문 내용과 context를 chain에 넘겨줘 응답을 받습니다.
+                answer = chain.invoke({
+                    "messages":[("human", question)],
+                    # context가 너무 길어서 줄임 (12000까지만)
+                    "context":context[:12000] # 문자수 12000개
+                })
             # ----------------------------------------------------------
             # History 저장
             # ----------------------------------------------------------
+            # session_state : streamlit의 자동 저장소
+            history = st.session_state[CHAT_HISTORY]
+
+            history.add_user_message(question)
+
+            history.add_ai_message(answer.content)
             # ----------------------------------------------------------
             # 결과 출력
             # ----------------------------------------------------------
-
-            pass
+            show_answer(answer)
+            show_token_usage(answer)
 
         except Exception as err:
-            pass
+            show_error(f"오류 발생 : {err}")
 # end def main():
 
 # ============================================================
