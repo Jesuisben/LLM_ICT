@@ -8,21 +8,19 @@
 import streamlit as st
 import sys
 from pathlib import Path
-
 # ============================================================
 # Project Root
 # ============================================================
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+    sys.path.insert(0,str(PROJECT_ROOT))
 
 from utility.env_util import get_api_key
 
 find_api = "OPENAI_API_KEY"
 api_key = get_api_key(find_api)
 # print(api_key)
-
 # =====================================================================
 # Local Module Import
 # =====================================================================
@@ -42,112 +40,125 @@ from chapter07_search_engine.youtube.llm_util import (
     create_chain,
     summarize_all_videos
 )
-
 from chapter07_search_engine.youtube.keyword_util import (
     extract_keywords,
     draw_keyword_chart
 )
-
-from chapter07_search_engine.youtube.ui_util import (
-    set_page,
-    draw_title,
-    draw_sidebar,
-    show_no_result,
-    draw_summary_header,
-    draw_keyword_header,
-    show_summary_complete,
-    show_analysis_complete
-)
 # =====================================================================
 # Page
 # =====================================================================
-set_page()
+st.set_page_config(
+    page_title="YouTube Summary",
+    page_icon='🎬',
+    layout="wide"
+)
 
-draw_title()
+st.title("🎬 YouTube GPT Summary")
 
+st.write(
+    """
+검색어를 입력하면
+
+- YouTube 검색
+- 자막 다운로드
+- GPT 요약
+- 키워드 분석
+
+을 수행합니다.
+"""
+)
+
+st.divider()
 # =====================================================================
 # SideBar
 # =====================================================================
-keyword, max_results, start_search = draw_sidebar()
+st.sidebar.header("검색 옵션")
 
+keywords = [
+    "생성형 AI",
+    "ChatGPT",
+    "Python",
+    "LangChain",
+    "Streamlit",
+    "RAG",
+    "LangGraph"
+]
+
+keyword = st.sidebar.selectbox(
+    "검색어 선택",
+    keywords,
+    index=3
+)
+
+max_results = st.sidebar.slider(
+    "검색 개수",
+    1,
+    10,
+    3
+)
+
+start_search = st.sidebar.button(
+    "검색 시작",
+    width="stretch"
+)
 # =====================================================================
 # Main
 # =====================================================================
 if start_search:
-
     # -----------------------------------------------------------------
     # 검색
     # -----------------------------------------------------------------
-    with st.spinner("YouTube 검색 중 ..."):
+    with st.spinner('YouTube 검색 중 ...'):
         videos = search_youtube(
-            keyword,
-            max_results
+            keyword, max_results
         )
 
     if not videos:
-        show_no_result()
+        st.warning('검색 결과가 없습니다.')
+        st.stop()
 
     show_videos(videos)
-
+    st.divider()
     # -----------------------------------------------------------------
     # 자막 읽기
     # -----------------------------------------------------------------
-    with st.spinner("자막 다운로드 중 ..."):
+    with st.spinner('자막 다운로드 중 ...'):
         caption_videos = load_all_caption(videos)
-
     # -----------------------------------------------------------------
     # GPT 준비
     # -----------------------------------------------------------------
-    with st.spinner("GPT 초기화 ..."):
-
-        model = create_model(
-            model_key=api_key
-        )
+    with st.spinner('GPT 초기화 ...'):
+        model = create_model(model_key=api_key)
 
         chain = create_chain(model)
-
     # -----------------------------------------------------------------
     # 요약
     # -----------------------------------------------------------------
-    with st.spinner("영상 요약 중 ..."):
-        summary_videos = summarize_all_videos(
-            chain,
-            caption_videos
-        )
+    with st.spinner('영상 요약 중 ...'):
+        summary_videos = summarize_all_videos(chain, caption_videos)
 
-    show_summary_complete()
+    st.success('영상 요약 완료')
 
-    draw_summary_header()
+    st.divider()
+
+    st.header('📄 영상별 요약')
 
     for idx, video in enumerate(summary_videos, start=1):
-
         with st.expander(
-            f"{idx}. {video['title']}",
-            expanded=False
+            f'{idx}. {video["title"]}', expanded=False
         ):
-
             show_video_summary(video)
 
+    st.divider()
     # -----------------------------------------------------------------
     # 키워드
     # -----------------------------------------------------------------
-    draw_keyword_header()
+    with st.spinner('키워드 분석 중 ...'):
+        top_keywords = extract_keywords(summary_videos)
 
-    with st.spinner("키워드 분석 중 ..."):
+        fig = draw_keyword_chart(top_keywords)
 
-        top_keywords = extract_keywords(
-            summary_videos
-        )
+    show_keyword_result(top_keywords, fig)
 
-        fig = draw_keyword_chart(
-            top_keywords
-        )
-
-    show_keyword_result(
-        top_keywords,
-        fig
-    )
-
-    show_analysis_complete()
-
+    st.success('분석 완료')
 # =====================================================================

@@ -1,6 +1,6 @@
-# ============================================================
+# =====================================================================
 # Chat Open AI 관련 유틸리티 모듈입니다.
-# ============================================================
+# =====================================================================
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import (
@@ -9,11 +9,11 @@ from langchain_core.prompts import (
 )
 
 from utility.env_util import get_api_key
-# ============================================================
+# =====================================================================
 # Open AI 모델을 생성하는 함수
-# ============================================================
+# =====================================================================
 def create_model(
-    model_name: str = "gpt-4o-mini",
+    model_name: str = 'gpt-4o-mini',
     temperature: float = 0.3,
     max_tokens: int = 150
 ):
@@ -27,25 +27,25 @@ def create_model(
     )
 
     return model
-# ============================================================
+# =====================================================================
 # Chain을 생성하는 함수
-# ============================================================
+# =====================================================================
 def create_chain(
     model=None
 ):
     if model is None:
         model = create_model()
 
-        prompt = create_prompt()
+    prompt = create_prompt()
 
-        # parser = StrOutputParser()
+    # parser = StrOutputParser()
 
-        chain = prompt | model #| parser
+    chain = prompt | model #| parser
 
-        return chain
-# ============================================================
+    return chain
+# =====================================================================
 # PromptTemplate를 생성하는 함수
-# ============================================================
+# =====================================================================
 def create_prompt():
     prompt = ChatPromptTemplate.from_messages(
         [

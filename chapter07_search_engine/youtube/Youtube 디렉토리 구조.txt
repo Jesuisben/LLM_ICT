@@ -1,0 +1,23 @@
+llm_project
+│
+└─ chapter08_use_youtube
+    │
+    └─ youtube
+        │
+        ├─ youtube_streamlit.py ⭐ Main
+        │
+        ├─ youtube_util.py
+        │       ├─ search_youtube()
+        │       └─ load_caption()
+        │
+        ├─ llm_util.py
+        │       ├─ create_model()
+        │       └─ create_chain()
+        │
+        ├─ keyword_util.py
+        │       ├─ extract_keywords()
+        │       └─draw_keyword_chart()
+        │
+        └─ ui_util.py
+                ├─ show_video()
+                └─show_summary()
