@@ -1,0 +1,407 @@
+import pytz
+import json
+
+from typing import Annotated # annotated는 타입 힌트를 사용할 때 사용하는 함수
+from typing_extensions import TypedDict # TypedDict는 딕셔너리 타입을 정의할 때 사용하는 함수
+
+from datetime import datetime
+from IPython.display import Image, display
+
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import ToolMessage, AIMessageChunk, HumanMessage, AIMessageChunk, SystemMessage
+from langchain_core.tools import tool
+
+from langchain_community.tools import DuckDuckGoSearchResults
+from langchain_community.utilities import DuckDuckGoSearchAPIWrapper
+
+from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
+
+위에서 열거한 항목들을 사용하여 LangGraph를 구성하는 코드를 작성하고 싶습니다.
+카페 환경을 이용하여 하고, streamlit를 사용해야 합니다.
+카페에서 판매하는 메뉴는 음료, 케익, 마카롱, 빵 입니다.
+이 메뉴들은 st.sidebar에 4개의 Tab(음료, 케익, 마카롱, 빵) 형식이었으면 합니다.
+각 Tab를 클릭하면 하단에 목록이 보였으면 합니다.
+
+LangGraph가 분기하는 상황이 필요하므로 다음과 같이 예를 들면 좋을 거 같습니다.
+입장→음료→빵→주문 완료
+입장→음료→케익→빵→주문 완료
+뭐 이런식으로 분기를 했으면 좋겠습니다.
+
+LangGraph는 반복문도 가능하므로 이것도 적절한 상황을 예시로 들어 주세요.
+파일은 역할에 맞게끔 여러 개의 파일로 만드셔도 좋습니다.
+----------------------------------------------------------------------------------
+좋은 예제입니다. 오히려 카페 주문 시스템은 LangGraph를 배우기에 가장 적합한 예제입니다.
+
+특히 다음 기능을 모두 넣을 수 있습니다.
+
+✅ State 관리(TypedDict)
+✅ LangGraph 분기(Conditional Edge)
+✅ 반복문(음료를 추가 주문하시겠습니까?)
+✅ Tool 사용(menu 조회)
+✅ LLM(ChatOpenAI)
+✅ Streamlit UI
+✅ Sidebar Tab
+✅ 최종 주문서 생성
+제가 추천하는 프로젝트 구조
+cafe_langgraph/
+│
+├── app.py                  # Streamlit 메인
+│
+├── graph.py                # LangGraph 생성
+├── state.py                # State 정의
+│
+├── nodes.py                # Node 함수들
+├── tools.py                # Tool 정의
+│
+├── menu.py                 # 메뉴 데이터
+├── prompts.py              # Prompt
+│
+├── util.py
+└── .env
+화면 구성
+-----------------------------------------
+        ☕ LangGraph Cafe
+-----------------------------------------
+
+사용자 :
+
+"아이스 아메리카노 하나 주세요."
+
+-----------------------------------------
+주문 현황
+
+음료
+   아메리카노
+
+빵
+   없음
+
+케익
+   없음
+
+마카롱
+   없음
+
+총금액
+-----------------------------------------
+
+Sidebar
+
+┌────────────────────┐
+│ 음료 │ 케익 │ 마카롱 │ 빵 │
+└────────────────────┘
+
+선택한 탭 아래
+
+아메리카노
+카페라떼
+바닐라라떼
+...
+
+
+
+
+
+
+
+
+
+
+
+좋은 주제입니다. 현재 만드신 AI Cafe는 LangGraph를 학습하기에 매우 적합한 예제입니다.
+특히 LangGraph의 분기(Conditional Edge) 와 반복(Loop) 을 자연스럽게 넣을 수 있습니다.
+
+단순히 "주문받기"만 하면 LangChain으로도 충분합니다. LangGraph를 사용하는 이유는
+상태(State)를 관리하면서 여러 단계의 판단과 반복을 수행하기 때문입니다.
+
+아래와 같은 아이디어를 추천드립니다.
+
+1. 추천하는 예제 : 주문 확인 반복 (가장 교육적)
+
+사용자가
+
+아메리카노 2잔
+치즈케이크 1개
+
+를 담았습니다.
+
+그래프는
+
+START
+   │
+   ▼
+주문 분석
+   │
+   ▼
+주문 확인
+   │
+   ├──── 아니오 ─────┐
+   │                 │
+   ▼                 │
+결제                 │
+   │                 │
+   ▼                 │
+END ◀────────────────┘
+
+예를 들어
+AI
+주문하신 메뉴가 맞습니까?
+
+사용자
+아니요. 아메리카노는 한 잔만 주세요.
+
+그러면 다시
+주문 분석
+
+노드로 돌아갑니다.
+
+이것이 LangGraph의 Loop입니다.
+
+2. 메뉴 추천 분기
+
+사용자가
+
+아메리카노만 주문
+
+하면
+
+주문 분석
+    │
+    ├── 음료만 있음
+    │
+    ▼
+추천 Agent
+    │
+    ▼
+케이크 추천
+
+예를 들어
+
+아메리카노와 치즈케이크 세트가 잘 어울립니다.
+
+반대로
+
+케이크가 이미 있음
+
+이면
+
+추천 Agent 건너뜀
+
+이 됩니다.
+
+Conditional Edge를 연습하기 좋습니다.
+
+3. 재고 확인
+START
+   │
+주문
+   │
+재고조회
+   │
+   ├── 재고 있음
+   │       │
+   │       ▼
+   │     결제
+   │
+   └── 품절
+           │
+           ▼
+      다른 메뉴 추천
+           │
+           ▼
+      주문 수정
+           │
+           └──────▶ 재고조회
+
+이 역시 Loop입니다.
+
+4. 예산 확인
+
+사용자가
+
+예산은 10,000원입니다.
+
+이라고 하면
+
+가격 계산
+
+후
+
+총액 18,000원
+
+이면
+
+예산 초과
+
+노드로 이동
+
+AI
+
+케이크를 제외하면
+9,500원입니다.
+
+사용자가
+
+좋아요.
+
+하면
+
+결제
+5. 메뉴 부족 여부
+
+장바구니가
+
+[]
+
+이면
+
+START
+   │
+장바구니 확인
+   │
+   ├── 비어있음
+   │      │
+   │      ▼
+   │   메뉴 추천
+   │
+   └── 있음
+          │
+          ▼
+      주문 진행
+
+간단하지만 Conditional Edge를 배우기 좋습니다.
+
+6. 쿠폰 분기
+쿠폰 있음?
+YES
+
+↓
+
+10% 할인
+NO
+
+↓
+
+정상가격
+7. 반복문 예제(추천)
+
+장바구니에
+
+아메리카노
+카푸치노
+크루아상
+
+이 있습니다.
+
+LangGraph는
+
+현재 index = 0
+
+↓
+
+아메리카노 처리
+
+↓
+
+index++
+
+↓
+
+카푸치노 처리
+
+↓
+
+index++
+
+↓
+
+크루아상 처리
+
+↓
+
+index++
+
+↓
+
+END
+
+State에
+
+{
+    "cart": [...],
+    "current_index": 0
+}
+
+를 두고
+
+current_index < len(cart)
+
+이면 다시 같은 노드로 돌아가도록 만들 수 있습니다.
+
+이것이 LangGraph에서 가장 많이 사용하는 Loop입니다.
+
+8. AI 카페 직원 예제(추천)
+
+이 예제가 가장 LangGraph다운 구조입니다.
+
+          START
+             │
+             ▼
+      주문 확인 Agent
+             │
+             ▼
+      메뉴 추천 Agent
+             │
+             ▼
+      할인 적용 Agent
+             │
+             ▼
+      결제 Agent
+             │
+             ▼
+      영수증 Agent
+             │
+             ▼
+            END
+
+각 Agent가 역할을 명확히 나누므로 Supervisor 패턴도 자연스럽게 설명할 수 있습니다.
+
+교육용으로 가장 추천하는 시나리오
+
+현재 프로젝트라면 다음 흐름을 추천드립니다.
+
+START
+   │
+장바구니 확인
+   │
+   ├── 비어있음
+   │        │
+   │        ▼
+   │   메뉴 추천
+   │        │
+   │        └────────────┐
+   │                     │
+   ▼                     │
+주문 확인 ◀──────────────┘
+   │
+   ├── 수정
+   │      │
+   │      ▼
+   │  메뉴 선택(반복)
+   │
+   └── 확인
+          │
+          ▼
+가격 계산
+          │
+          ▼
+할인 적용
+          │
+          ▼
+영수증 생성
+          │
+          ▼
+         END
+
+이 하나의 예제 안에 조건 분기(Conditional Edge), 반복(Loop), 상태(State) 변경, 여러 노드 간 역할 분담을 모두 담을 수 있어서 LangGraph의 핵심 기능을 실습하기에 적합합니다.
