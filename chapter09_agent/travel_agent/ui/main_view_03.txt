@@ -1,0 +1,134 @@
+import streamlit as st
+
+from langchain_core.messages import (
+    SystemMessage
+)
+
+from chapter09_agent.travel_agent.state import State
+
+from chapter09_agent.travel_agent.models.trip_plan import TripPlan
+from chapter09_agent.travel_agent.models.research_result import ResearchResult
+from chapter09_agent.travel_agent.models.execution_result import ExecutionResult
+from .graph_loader import load_graph
+from .graph_runner import run_graph
+
+from .input_view import input_trip
+from .result_view import show_result
+
+# ------------------------------------------------
+# State 초기화
+#
+# 프로그램이 처음 실행될 때 한 번만
+# SessionState에 State 객체를 생성한다.
+# ------------------------------------------------
+
+def init_state():
+
+    if "state" not in st.session_state:
+
+        st.session_state.state = State(
+            messages=[
+                SystemMessage(
+                    content="출장 계획을 관리하는 AI Agent"
+                )
+            ],
+            task_history=[],
+            trip_plan=TripPlan(),
+            research_result=ResearchResult(),
+            execution_result=ExecutionResult(),
+            final_report=""
+        )
+
+    return st.session_state.state
+
+
+# ------------------------------------------------
+# 메인 화면
+#
+# 역할
+# 1. 화면 배치
+# 2. 사용자 입력
+# 3. 실행 버튼 이벤트 처리
+# 4. 결과 화면 출력
+#
+# 실제 LangGraph 실행은
+# graph_runner.py에서 담당하도록 분리할 예정이다.
+# ------------------------------------------------
+
+def show_main():
+
+    # --------------------------------------------
+    # 페이지 설정
+    # --------------------------------------------
+
+    st.set_page_config(
+        page_title="출장 Travel Agent",
+        layout="wide"
+    )
+
+    # --------------------------------------------
+    # 가운데 정렬
+    # --------------------------------------------
+
+    left, center, right = st.columns(
+        [2, 6, 2]
+    )
+
+    with center:
+
+        st.title(
+            "✈️ 출장 Travel Agent"
+        )
+
+        # ----------------------------------------
+        # State 생성
+        # ----------------------------------------
+
+        state = init_state()
+
+        # ----------------------------------------
+        # 출장 정보 입력
+        # ----------------------------------------
+
+        trip_plan = input_trip()
+
+        # ----------------------------------------
+        # 실행 버튼
+        #
+        # 현재는 LangGraph를 아직 구축하지 않은
+        # 단계이므로 TripPlan만 State에 저장한다.
+        #
+        # 추후에는 graph_runner.py를 호출하여
+        # LangGraph를 실행할 예정이다.
+        # ----------------------------------------
+
+        if st.button(
+            "출장 계획 생성"
+        ):
+
+            state["trip_plan"] = trip_plan
+
+            st.session_state.state = state
+
+            st.success(
+                "출장 정보가 저장되었습니다."
+            )
+
+            st.write(trip_plan)
+
+            # ------------------------------------
+            # TODO
+            #
+            # graph_runner.run_graph(...)
+            #
+            graph = load_graph()
+            run_graph(graph, state, trip_plan)
+            # ------------------------------------
+
+        # ----------------------------------------
+        # 결과 출력
+        # ----------------------------------------
+
+        show_result(
+            st.session_state.state
+        )

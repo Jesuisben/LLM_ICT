@@ -1,0 +1,97 @@
+import streamlit as st
+
+from langchain_core.messages import SystemMessage
+
+from langchain_openai import ChatOpenAI
+
+from chapter09_agent.travel_agent.state import State
+
+from chapter09_agent.travel_agent.models.trip_plan import TripPlan
+from chapter09_agent.travel_agent.models.research_result import ResearchResult
+from chapter09_agent.travel_agent.models.execution_result import ExecutionResult
+
+from chapter09_agent.travel_agent.graph.workflow import create_graph
+
+from .input_view import input_trip
+from .graph_runner import run_graph
+from .result_view import show_result
+
+
+# ------------------------------------------------
+# LangGraph 생성
+# ------------------------------------------------
+
+@st.cache_resource
+def load_graph():
+
+    model = ChatOpenAI(
+        model="gpt-4o"
+    )
+
+    return create_graph(model)
+
+
+# ------------------------------------------------
+# State 초기화
+# ------------------------------------------------
+
+def init_state():
+
+    if "state" not in st.session_state:
+
+        st.session_state.state = State(
+            messages=[
+                SystemMessage(
+                    content="출장 계획을 관리하는 AI Agent"
+                )
+            ],
+            task_history=[],
+            trip_plan=TripPlan(),
+            research_result=ResearchResult(),
+            execution_result=ExecutionResult(),
+            final_report=""
+        )
+
+    return st.session_state.state
+
+
+# ------------------------------------------------
+# 메인 화면
+# ------------------------------------------------
+
+def show_main():
+
+    st.set_page_config(
+        page_title="출장 Travel Agent",
+        layout="wide"
+    )
+
+    left, center, right = st.columns(
+        [2, 6, 2]
+    )
+
+    with center:
+
+        st.title(
+            "✈️ 출장 Travel Agent"
+        )
+
+        state = init_state()
+
+        graph = load_graph()
+
+        trip_plan = input_trip()
+
+        if st.button(
+            "출장 계획 생성"
+        ):
+
+            run_graph(
+                graph,
+                state,
+                trip_plan
+            )
+
+        show_result(
+            st.session_state.state
+        )

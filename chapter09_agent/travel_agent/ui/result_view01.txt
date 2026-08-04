@@ -1,0 +1,13 @@
+from chapter09_agent.travel_agent.ui.trip_plan_view import show_trip_plan
+
+
+# ------------------------------------------------
+# 결과 출력
+# ------------------------------------------------
+def show_result(
+    state
+):
+
+    show_trip_plan(
+        state["trip_plan"]
+    )

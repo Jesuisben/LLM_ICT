@@ -1,0 +1,74 @@
+from langgraph.graph import StateGraph
+from langgraph.constants import START, END
+
+from chapter09_agent.travel_agent.state import State
+
+# # 관련 함수들 import 하기
+from chapter09_agent.travel_agent.agents.supervisor import supervisor
+from chapter09_agent.travel_agent.agents.planner import planner_agent
+from chapter09_agent.travel_agent.agents.research import research_agent
+from chapter09_agent.travel_agent.agents.executor import executor_agent
+from chapter09_agent.travel_agent.agents.communicator import communicator_agent
+
+
+def create_graph(model): # 최종 결과 사용자 전달
+    travel_graph = StateGraph(State)
+
+    travel_graph.add_node(
+        "supervisor",
+        lambda state: supervisor(state, model)
+    )
+
+    travel_graph.add_node(
+        "planner",
+        lambda state: planner_agent(state, model)
+    )
+
+    travel_graph.add_node(
+        "research",
+        research_agent
+    )
+
+    travel_graph.add_node(
+        "executor",
+        executor_agent
+    )
+
+    travel_graph.add_node(
+        "communicator",
+        lambda state:communicator_agent(state, model)
+    )
+
+    # 시작 노드
+    travel_graph.add_edge(
+        START,
+        "supervisor"
+    )
+
+    travel_graph.add_edge(
+        "supervisor",
+        "planner"
+    )
+
+    travel_graph.add_edge(
+        "planner",
+        "research"
+    )
+
+    travel_graph.add_edge(
+        "research",
+        "executor"
+    )
+
+    travel_graph.add_edge(
+        "executor",
+        "communicator"
+    )
+
+    travel_graph.add_edge(
+        "communicator",
+        END
+    )
+
+    return travel_graph.compile()
+# end def create_graph

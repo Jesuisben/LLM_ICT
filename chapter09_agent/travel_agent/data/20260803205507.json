@@ -1,0 +1,254 @@
+{
+    "messages": [
+        {
+            "type": "SystemMessage",
+            "content": "출장 계획을 관리하는 AI Agent"
+        },
+        {
+            "type": "HumanMessage",
+            "content": "출장 계획을 생성해 주세요."
+        },
+        {
+            "type": "AIMessage",
+            "content": "[Supervisor] agent=<AgentType.PLANNER: 'planner'> done=True description='The user has requested the creation of a business trip plan, which is the first step and involves selecting the planner agent to define the destination, duration, and initial details of the trip.' done_at='2023-10-06T12:00:00Z'"
+        },
+        {
+            "type": "AIMessage",
+            "content": "[Research] 조사 완료"
+        }
+    ],
+    "task_history": [
+        {
+            "agent": "planner",
+            "done": true,
+            "description": "The user has requested the creation of a business trip plan, which is the first step and involves selecting the planner agent to define the destination, duration, and initial details of the trip.",
+            "done_at": "2026-08-03 20:55:05"
+        }
+    ],
+    "trip_plan": {
+        "departure": "김포",
+        "destination": "제주",
+        "start_date": "2026-08-03",
+        "end_date": "2026-08-06",
+        "period": "2026-08-03 ~ 2026-08-06",
+        "need_flight": true,
+        "need_hotel": false,
+        "need_weather": true,
+        "summary": "김포를 출발하여 3박 4일 동안 제주에서 출장을 갖습니다. 항공편 예약이 필요하며, 도착지 날씨 정보를 확인해야 합니다. 하지만 숙박은 별도로 예약하지 않아도 됩니다."
+    },
+    "research_result": {
+        "flight_list": [
+            {
+                "price": 12345.0,
+                "flight_number": "WE6501",
+                "airline": "파라타항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0715",
+                "estimated_time": "0727",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "4",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "RS901",
+                "airline": "에어서울",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0715",
+                "estimated_time": "0707",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "5",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "ZE201",
+                "airline": "이스타항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0720",
+                "estimated_time": "0710",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "1",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "LJ501",
+                "airline": "진에어",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0730",
+                "estimated_time": "0717",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "2",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "7C101",
+                "airline": "제주항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0730",
+                "estimated_time": "0723",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "5",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "7C151",
+                "airline": "제주항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0735",
+                "estimated_time": "0750",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "5",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "7C103",
+                "airline": "제주항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0735",
+                "estimated_time": "0748",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "2",
+                "line": "국내",
+                "io": "I"
+            },
+            {
+                "price": 12345.0,
+                "flight_number": "TW701",
+                "airline": "티웨이항공",
+                "departure": "서울/김포",
+                "arrival": "제주",
+                "departure_airport": "GMP",
+                "arrival_airport": "CJU",
+                "scheduled_time": "0740",
+                "estimated_time": "0746",
+                "status": "도착",
+                "status_eng": "ARRIVED   ",
+                "gate": "3",
+                "line": "국내",
+                "io": "I"
+            }
+        ],
+        "hotel_list": [
+            {
+                "name": "",
+                "location": "제주",
+                "address": "제주시 중앙로 100",
+                "property_class": 0,
+                "price": 120000.0,
+                "total_price": 360000.0,
+                "currency": "KRW",
+                "rating": 9.2,
+                "rating_text": "",
+                "review_count": 0,
+                "room_type": "스탠다드 더블",
+                "check_in": "",
+                "check_out": "",
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "photo_url": ""
+            },
+            {
+                "name": "",
+                "location": "제주",
+                "address": "제주시 비즈니스로 25",
+                "property_class": 0,
+                "price": 95000.0,
+                "total_price": 285000.0,
+                "currency": "KRW",
+                "rating": 8.8,
+                "rating_text": "",
+                "review_count": 0,
+                "room_type": "디럭스 싱글",
+                "check_in": "",
+                "check_out": "",
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "photo_url": ""
+            },
+            {
+                "name": "",
+                "location": "제주",
+                "address": "제주시 시청길 10",
+                "property_class": 0,
+                "price": 150000.0,
+                "total_price": 450000.0,
+                "currency": "KRW",
+                "rating": 9.5,
+                "rating_text": "",
+                "review_count": 0,
+                "room_type": "프리미엄 더블",
+                "check_in": "",
+                "check_out": "",
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "photo_url": ""
+            },
+            {
+                "name": "",
+                "location": "제주",
+                "address": "제주시 해변로 88",
+                "property_class": 0,
+                "price": 210000.0,
+                "total_price": 630000.0,
+                "currency": "KRW",
+                "rating": 9.7,
+                "rating_text": "",
+                "review_count": 0,
+                "room_type": "오션뷰 스위트",
+                "check_in": "",
+                "check_out": "",
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "photo_url": ""
+            }
+        ],
+        "weather": {
+            "location": "제주",
+            "weather": "맑음",
+            "temperature": 31.0,
+            "humidity": 70.0,
+            "rain_probability": 0.0,
+            "wind_speed": 2.0
+        }
+    },
+    "final_report": ""
+}
